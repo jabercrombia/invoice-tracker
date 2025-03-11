@@ -1,9 +1,14 @@
+import AmountTotal from "./components/dashboard/amount-total";
+
 
 export default function Home() {
   return (
-    <div className="mx-auto w-1/2">
-   <h1>hello</h1>
-      </div>
+    <div className="container mx-auto">
+      <h1>Invoice Dashboard</h1>
+      <AmountTotal />
+    </div>
+
+
  
   );
 }

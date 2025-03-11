@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^6.4.7",
     "@mui/x-data-grid": "^7.27.3",
+    "@next/third-parties": "^15.2.2",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-navigation-menu": "^1.2.5",
     "@radix-ui/react-select": "^2.1.6",

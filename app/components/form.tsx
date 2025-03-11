@@ -46,7 +46,7 @@ export default function Form() {
     <form onSubmit={handleSubmit}>
       <Input name="name" placeholder="Name" onChange={handleChange} required />
       <Input name="email" type="email" placeholder="Email" onChange={handleChange} required />
-      <Textarea name="message" placeholder="Message" onChange={handleChange} required />
+      <Textarea name="message" placeholder="Message" onChange={handleChange} />
       <Input name="amount" type="number" step="0.01" placeholder="Amount" onChange={handleChange} required />
 
       <Select value={form.status} onValueChange={handleSelectChange}>

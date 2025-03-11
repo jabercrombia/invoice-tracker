@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./styles/components/_navbar.scss";
+@import "./styles/components/_forms.scss";
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));

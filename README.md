@@ -1,6 +1,6 @@
 # Invoice Tracker
 ![dashboard](/public/dashboard.png)
-
+This is a work in progress that I am currently working on integrating Postgre SQL and Nextjs.
 ## Overview
 The **Invoice Tracker** is a web application built using **Next.js**, **PostgreSQL**, **Tailwind CSS**, and **ShadCN**. It allows users to **create, manage, and track invoices** efficiently while storing data securely in a PostgreSQL database.
 

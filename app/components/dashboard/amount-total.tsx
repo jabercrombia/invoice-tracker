@@ -19,7 +19,6 @@ export default async function AmountTotal() {
   // change string to num
   const amountNum = amountFilter?.map((str: { amount: string }) => str?.amount ? parseFloat(str?.amount): null);
 
-  console.log(amountNum);
   // add all values in array
   const sum: number = amountNum.reduce((a : number, b : number) => {  
       const totalAmount = a + b;

@@ -1,6 +1,7 @@
 import AmountTotal from "./components/dashboard/amount-total";
 
 import AmountUnpaid from "./components/dashboard/amount-unpaid";
+import CompanyList from "./components/dashboard/company-list";
 
 
 export default function Home() {
@@ -13,6 +14,8 @@ export default function Home() {
         <AmountUnpaid />
       </div>
 
+      <h1>Client Payments</h1>
+      <CompanyList />
     </div>
 
 

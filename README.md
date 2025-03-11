@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Invoice Tracker
 
-## Getting Started
+## Overview
+The **Invoice Tracker** is a web application built using **Next.js**, **PostgreSQL**, **Tailwind CSS**, and **ShadCN**. It allows users to **create, manage, and track invoices** efficiently while storing data securely in a PostgreSQL database.
 
-First, run the development server:
+## Features
+- **Create and Manage Invoices**: Users can add invoices with details like client name, amount, status, and due date.
+- **Store Data in PostgreSQL**: Securely saves invoice records in a PostgreSQL database.
+- **Modern UI with ShadCN & Tailwind**: Provides a clean and user-friendly interface.
+- **Dynamic Filtering and Sorting**: Allows users to filter invoices by status (Pending, Paid, Overdue, etc.).
+- **Responsive Design**: Fully mobile-friendly and optimized for various screen sizes.
 
+## Technologies Used
+- **Next.js** – React framework for building server-side rendered (SSR) and static web applications.
+- **PostgreSQL** – Relational database for storing invoice records.
+- **Tailwind CSS** – Utility-first CSS framework for styling.
+- **ShadCN** – Modern UI components for a sleek user experience.
+
+## Installation
+### Prerequisites
+Ensure you have the following installed:
+- **Node.js** (Latest LTS version)
+- **PostgreSQL** (Running locally or on AWS RDS)
+
+### Steps to Run Locally
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/invoice-tracker.git
+   cd invoice-tracker
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up environment variables:
+   Create a `.env.local` file and add your PostgreSQL database credentials:
+   ```env
+   DATABASE_URL=postgresql://username:password@localhost:5432/invoicetracker
+   ```
+4. Run database migrations:
+   ```bash
+   npx prisma migrate dev --name init
+   ```
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## API Endpoints
+| Method | Endpoint         | Description                   |
+|--------|----------------|-------------------------------|
+| GET    | /api/invoices  | Fetch all invoices           |
+| POST   | /api/invoices  | Create a new invoice         |
+| PUT    | /api/invoices/:id | Update invoice details  |
+| DELETE | /api/invoices/:id | Delete an invoice      |
+
+## UI Components
+- **Invoice Form**: Uses ShadCN `Input`, `Select`, and `Button` components.
+- **Invoice Table**: Displays stored invoices with Tailwind styling.
+- **Status Dropdown**: Uses ShadCN `Select` to update invoice status.
+
+## Deployment
+To deploy on **Vercel**, run:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+vercel
 ```
+Ensure that the **DATABASE_URL** environment variable is set correctly on Vercel.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## License
+This project is licensed under the MIT License.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

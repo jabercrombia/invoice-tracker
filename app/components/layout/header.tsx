@@ -9,6 +9,10 @@ const items = [
     title: "Form",
     url: "/form",
   },
+  {
+    title: "Submission",
+    url: "/submission",
+  },
 ];
 
 export default function Header() {
@@ -16,7 +20,7 @@ export default function Header() {
     <nav>
         <div className="container mx-auto">
             {items.map((item, index) => (
-                <Link href={item.url} key={index}>
+                <Link href={item.url} title={item.title} key={index} tabIndex={index}>
                     <span>{item.title}</span>
                 </Link>
             ))}

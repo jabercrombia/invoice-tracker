@@ -1,81 +1,42 @@
-"use client"; // Needed for handling form state
+"use client";
 
 import { useState } from "react";
 import { Input } from "../../components/ui/input";
-
 import { Textarea } from "../../components/ui/textarea";
+export default function Form() {
+  const [form, setForm] = useState({ name: "", email: "", message: "", amount: "", status: "pending" });
 
-export default function ContactForm() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setResponse("");
+    const res = await fetch("/api/submit-form", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
 
-    try {
-      const res = await fetch("/api/submit-form", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await res.json();
-      if (res.ok) {
-        setResponse("Form submitted successfully!");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setResponse(result.error || "Submission failed.");
-      }
-    } catch (error) {
-      setResponse("Error submitting the form.");
-    } finally {
-      setLoading(false);
-    }
+    const data = await res.json();
+    if (data.success) alert("Form submitted successfully!");
+    else alert("Error: " + data.error);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 border rounded-lg">
-      <div className="mb-4">
-        <label className="block text-sm font-bold">Name</label>
-        <Input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-         
-          
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-bold">Email</label>
-        <Input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-bold">Message</label>
-        <Textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded" disabled={loading}>
-        {loading ? "Submitting..." : "Submit"}
-      </button>
-      {response && <p className="mt-2 text-center text-sm">{response}</p>}
+    <form onSubmit={handleSubmit}>
+      <Input name="name" placeholder="Name" onChange={handleChange} required />
+      <Input name="email" type="email" placeholder="Email" onChange={handleChange} required />
+      <Textarea name="message" placeholder="Message" onChange={handleChange} required />
+      <Input name="amount" type="number" step="0.01" placeholder="Amount" onChange={handleChange} required />
+      
+      <select name="status" onChange={handleChange} required>
+        <option value="pending">Pending</option>
+        <option value="approved">Approved</option>
+        <option value="rejected">Rejected</option>
+      </select>
+
+      <button type="submit">Submit</button>
     </form>
   );
 }

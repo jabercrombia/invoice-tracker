@@ -26,6 +26,8 @@ export default async function AmountTotal() {
       return parseFloat(totalAmount.toFixed(2));  
   }, 0); 
 
+
+
   return (
     <div>
       {sum && <Card title="Total Amount Paid" data={sum}/> }

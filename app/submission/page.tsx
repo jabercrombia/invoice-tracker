@@ -53,11 +53,11 @@ export default function Submissions() {
         <h1>Form Submissions</h1>
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
-        <Paper sx={{ height: 400, width: '100%' }}>
+        <Paper sx={{width: '100%' }}>
             <DataGrid
                 rows={submissions}
                 columns={columns}
-                initialState={{ pagination: { paginationModel: { pageSize: 5, page: 0 } } }}
+                initialState={{ pagination: { paginationModel: { pageSize: 20, page: 0 } } }}
                 pageSizeOptions={[5, 10]}
                 sx={{ border: 0 }}
             />

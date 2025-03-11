@@ -52,6 +52,7 @@ export default function Submissions() {
     <div className="container mx-auto">
         <h1>Form Submissions</h1>
         {loading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
         <Paper sx={{ height: 400, width: '100%' }}>
             <DataGrid
                 rows={submissions}

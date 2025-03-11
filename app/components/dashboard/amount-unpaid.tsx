@@ -13,13 +13,12 @@ export default async function AmountTotal() {
 
   // filter
   const amountFilter = data?.filter((str: { amount: string; status : string }) => {
-    return str?.amount !== null && str?.status == 'approved';
+    return str?.amount !== null && str?.status !== 'approved';
   });
 
   // change string to num
   const amountNum = amountFilter?.map((str: { amount: string }) => str?.amount ? parseFloat(str?.amount): null);
 
-  console.log(amountNum);
   // add all values in array
   const sum: number = amountNum.reduce((a : number, b : number) => {  
       const totalAmount = a + b;
@@ -28,7 +27,7 @@ export default async function AmountTotal() {
 
   return (
     <div>
-      {sum && <Card title="Total Amount Paid" data={sum}/> }
+      {sum && <Card title="Total Unpaid" data={sum}/> }
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
 import Link from "next/link";
 const items = [
   {

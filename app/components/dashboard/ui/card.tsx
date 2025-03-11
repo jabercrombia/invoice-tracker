@@ -1,5 +1,5 @@
 
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatcurrency";
 
 interface CardProps {
     title: string;

@@ -9,7 +9,7 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: `Invoice Tracker`,
-  description: `Explore a powerful GA4 dashboard built with Next.js and seamlessly deployed on Vercel. This dynamic, high-performance dashboard provides real-time insights into your website's traffic, user behavior, and key metrics. Built using the latest web technologies, it offers a user-friendly interface and advanced features for tracking performance, analyzing data, and optimizing digital strategies. Leverage the speed and scalability of Vercel to access detailed analytics in a secure and responsive environment, making it easy to monitor and improve your website’s performance`,
+  description: `I built an Invoice Tracker using Next.js with PostgreSQL integration, leveraging sample datasets to manage and visualize financial data using MUI. Deployed on Vercel, the app offers seamless invoice tracking with a responsive UI and real-time insights.`,
   keywords: [
     "Invoice Tracker",
     "Online Invoice Management",

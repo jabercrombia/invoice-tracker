@@ -22,7 +22,6 @@ export default async function CompanyList() {
 
     return (
         <Table>
-            <TableCaption>Total Payments by Client</TableCaption>
             <TableHeader>
                 <TableRow>
                 <TableHead className="w-[100px]">Company Name</TableHead>

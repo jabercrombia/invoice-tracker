@@ -76,14 +76,18 @@ export default function YearGraph() {
   }, []);
   
   return (
-    <BarChart className="mx-auto w-full"
-    dataset={refactorData(data)}
-      series={yAxisObj}
-      height={290}
-      width={chartWidth}
-      xAxis={[{ dataKey: 'year', scaleType: "band" }]}
-      yAxis={[{ min: 0, max: maxY }]}
-      margin={{ top: 10, bottom: 30, left: 50, right: 10 }}
-    />
+    <div className="border-1 border-gray-200 p-4 mt-[50px]">
+      <h2 className="text-center">Yearly Payments</h2>
+      <BarChart className="mx-auto w-full"
+        dataset={refactorData(data)}
+        series={yAxisObj}
+        height={600}
+        width={chartWidth}
+        xAxis={[{ dataKey: 'year', scaleType: "band" }]}
+        yAxis={[{ min: 0, max: maxY }]}
+        margin={{ top: 10, bottom: 30, left: 50, right: 10 }}
+      />
+    </div>
+
   );
 }

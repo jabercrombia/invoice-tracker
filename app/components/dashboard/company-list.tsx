@@ -10,8 +10,6 @@ import {
 
   import { formatCurrency } from "@/utils/formatcurrency";
 
-
-  
 export default async function CompanyList() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/groupname`, {
         cache: "no-store",
@@ -24,7 +22,7 @@ export default async function CompanyList() {
 
     return (
         <Table>
-            <TableCaption>A list of your recent invoices.</TableCaption>
+            <TableCaption>Total Payments by Client</TableCaption>
             <TableHeader>
                 <TableRow>
                 <TableHead className="w-[100px]">Company Name</TableHead>
@@ -33,8 +31,8 @@ export default async function CompanyList() {
                 </TableRow>
             </TableHeader>
             <TableBody>
-                {data.map((elem: {name: string; total_amount : number; total_submissions : number}) => (
-                    <TableRow>
+                {data.map((elem: {id: number; name: string; total_amount : number; total_submissions : number}, index : number) => (
+                    <TableRow key={index}>
                         <TableCell>{elem.name}</TableCell>
                         <TableCell>{elem.total_submissions}</TableCell>
                         <TableCell>{formatCurrency(elem.total_amount)}</TableCell>

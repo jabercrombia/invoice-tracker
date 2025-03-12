@@ -3,6 +3,8 @@ import AmountTotal from "./components/dashboard/amount-total";
 import AmountUnpaid from "./components/dashboard/amount-unpaid";
 import CompanyList from "./components/dashboard/company-list";
 
+import YearGraph from "./components/dashboard/yeargraph";
+
 
 export default function Home() {
   return (
@@ -14,8 +16,9 @@ export default function Home() {
         <AmountUnpaid />
       </div>
 
-      <h1>Client Payments</h1>
+      <h2>Client Payments</h2>
       <CompanyList />
+      <YearGraph />
     </div>
 
 

@@ -7,6 +7,7 @@ import { BarChart } from "@mui/x-charts/BarChart";
 
 export default function YearGraph() {
 
+  type DataType = Record<string, { name: string; total_amount: string }[]>;
   const [data, setData] = useState<DataType>({});
 
   useEffect(() => {

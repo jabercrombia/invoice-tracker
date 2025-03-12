@@ -29,7 +29,7 @@ export default async function AmountTotal() {
 
   return (
     <div>
-      {sum && <Card title="Total Amount Paid" data={sum}/> }
+      {sum && <Card title="Total Paid" data={sum}/> }
     </div>
   );
 }

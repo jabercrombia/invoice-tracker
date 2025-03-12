@@ -43,8 +43,8 @@ export default function YearGraph() {
 
   const transformedData = Object.entries(data).map(([year, records]) => ({
     year,
-    data: (records as { total_amount: number }[]).map(
-      (record) => record.total_amount
+    data: records.map(
+      (record) => parseFloat(record.total_amount)
     ),
   }));
 

@@ -2,6 +2,7 @@
 @import "./styles/components/_navbar.scss";
 @import "./styles/components/_forms.scss";
 @import "./styles/components/_card.scss";
+@import "./styles/components/_footer.scss";
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));

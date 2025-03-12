@@ -6,18 +6,19 @@ import Paper from '@mui/material/Paper';
 
 
 const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID' },
-    { field: 'name', headerName: 'name' },
-    { field: 'email', headerName: 'email'  },
-    { field: 'amount', headerName: 'amount' },
+    { field: 'id', width: 90, headerName: 'ID' },
+    { field: 'name', flex: 1, headerName: 'name' },
+    { field: 'email', flex: 1, headerName: 'email'  },
+    { field: 'amount', flex: 1, headerName: 'amount' },
     {
       field: 'message',
       headerName: 'Message',
+      width: 300,
     },
     {
       field: 'status',
       headerName: 'Status',
-      sortable: false,
+      width: 90,
     },
   ];
 
@@ -49,8 +50,8 @@ export default function Submissions() {
   }, []);
 
   return (
-    <div className="container mx-auto">
-        <h1>Form Submissions</h1>
+    <div className="container mx-auto py-6">
+        <h1>Invoices</h1>
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         <Paper sx={{width: '100%' }}>

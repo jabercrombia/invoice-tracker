@@ -5,11 +5,7 @@ const items = [
     url: "/",
   },
   {
-    title: "Form",
-    url: "/form",
-  },
-  {
-    title: "Submission",
+    title: "Invoices",
     url: "/submission",
   },
 ];
@@ -17,7 +13,7 @@ const items = [
 export default function Header() {
   return (
     <nav>
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
             {items.map((item, index) => (
                 <Link href={item.url} title={item.title} key={index} tabIndex={index}>
                     <span>{item.title}</span>

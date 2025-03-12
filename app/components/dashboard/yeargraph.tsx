@@ -16,7 +16,6 @@ export default function YearGraph() {
         const response = await fetch("/api/group/year");
         const result = await response.json();
         setData(result.data);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching chart data:", error);
       }

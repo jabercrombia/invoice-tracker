@@ -8,7 +8,6 @@ import { BarChart } from "@mui/x-charts/BarChart";
 export default function YearGraph() {
 
   const [data, setData] = useState<DataType>({});
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,17 +21,9 @@ export default function YearGraph() {
       }
     };
 
-    fetchData(); // ✅ Call API only once on mount
-  }, []); // ✅ Empty dependency array ensures it runs once
+    fetchData(); 
+  }, []); 
 
-  // const res = await fetch(
-  //   `${process.env.NEXT_PUBLIC_BASE_URL}/api/group/year`,
-  //   {
-  //     cache: "no-store",
-  //   }
-  // );
-
-  // if (!res.ok) throw new Error("Failed to fetch submissions");
   type InputData = Record<string, { name: string; total_amount: string }[]>;
   type OutputData = { year: number; [company: string]: number }[];
   
@@ -47,8 +38,8 @@ export default function YearGraph() {
       return transformedYear;
     });
   };
-console.log(data);
-  console.log(refactorData(data));
+
+  
 
   const transformedData = Object.entries(data).map(([year, records]) => ({
     year,
@@ -60,9 +51,6 @@ console.log(data);
   // convert array of strings to array of numbers
   const stringToNum = (arr: number[]) => arr.map(Number);
 
-  const barchartxAxis = transformedData.map(
-    (elem: { year: string }) => elem.year
-  );
   const barchartyAxis = transformedData.map((elem: { data: number[] }) =>
     stringToNum(elem.data)
   );

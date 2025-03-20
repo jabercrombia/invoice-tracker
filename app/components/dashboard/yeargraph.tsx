@@ -63,11 +63,13 @@ export default function YearGraph() {
 
   const maxY = Math.max(...yAxisObj.flatMap((d) => d.data)) + 5000; // Add padding
   const [chartWidth, setChartWidth] = useState(500);
+  const [chartHeight, setChartHeight] = useState(500);
 
   // Handle window resize
   useEffect(() => {
     const handleResize = () => {
-      setChartWidth(window.innerWidth < 600 ? 300 : 800); // Adjust width based on screen size
+      setChartWidth(window.innerWidth < 768 ? 400 : 650); // Adjust width based on screen size
+      setChartHeight(window.innerWidth < 768 ? 300 : 600);
     };
 
     window.addEventListener("resize", handleResize);
@@ -81,8 +83,8 @@ export default function YearGraph() {
       <BarChart className="mx-auto w-full"
         dataset={refactorData(data)}
         series={yAxisObj}
-        height={600}
         width={chartWidth}
+        height={chartHeight}
         xAxis={[{ dataKey: 'year', scaleType: "band" }]}
         yAxis={[{ min: 0, max: maxY }]}
         margin={{ top: 10, bottom: 30, left: 50, right: 10 }}

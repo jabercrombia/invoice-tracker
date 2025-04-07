@@ -36,7 +36,7 @@ Ensure you have the following installed:
 3. Set up environment variables:
    Create a `.env.local` file and add your PostgreSQL database credentials:
    ```env
-   DATABASE_URL=postgresql://username:password@localhost:5432/invoicetracker
+   DATABASE_URL=
    ```
 4. Run database migrations:
    ```bash

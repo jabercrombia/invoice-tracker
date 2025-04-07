@@ -1,3 +1,13 @@
+CREATE TABLE form_submissions (
+  id SERIAL PRIMARY KEY,
+  amount DECIMAL(10, 2),
+  name VARCHAR(255),
+  email VARCHAR(255),
+  message TEXT,
+  created_at TIMESTAMP,
+  status VARCHAR(50)
+);
+
 insert into form_submissions (id, amount, name, email, message, created_at, status) values (2, 5963.0, 'google', 'igrowcott0@theguardian.com', '', '2021-09-08 17:55:45', 'rejected');
 insert into form_submissions (id, amount, name, email, message, created_at, status) values (3, 15537.77, 'etsy', 'dosment1@ucla.edu', 'Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis.', '2022-05-09 14:48:29', 'pending');
 insert into form_submissions (id, amount, name, email, message, created_at, status) values (4, 19032.43, 'apple', 'socurrigan2@gnu.org', 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', '2021-05-10 13:02:46', 'approved');
